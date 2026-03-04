@@ -74,7 +74,7 @@ const UploadMusic = () => {
 
         <div className="w-full max-w-md mb-36 flex">
           <button onClick={() => navigate(-1)} className="text-2xl cursor-pointer text-indigo-300"><IoArrowBackOutline /></button>
-          <h1 className="text-2xl font-semibold mx-auto bg-gradient-to-r from-indigo-400 to-blue-300 bg-clip-text text-transparent">Upload Music</h1>
+          <h1 className="text-2xl font-clash font-semibold mx-auto bg-gradient-to-r from-indigo-400 to-blue-300 bg-clip-text text-transparent">Upload Music</h1>
         </div>
 
         {/* Upload Form */}

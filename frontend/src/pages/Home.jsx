@@ -23,8 +23,8 @@ const Home = () => {
   return (
     <div className="flex flex-col h-full w-full">
       {/* Top Title Header matching vanilla layout */}
-      <header className="glass-panel w-full theme-bg-secondary border shadow-sm rounded-xl py-5 px-8 mb-8 flex items-center h-20">
-        <h1 className="text-2xl font-bold theme-text-primary tracking-tight">Discover New Beats</h1>
+      <header className="w-full theme-bg-secondary border theme-border shadow-[0_8px_30px_rgb(0,0,0,0.12)] rounded-xl py-5 px-8 mb-8 flex items-center h-20 bg-opacity-60 backdrop-blur-md">
+        <h1 className="text-2xl font-clash font-bold theme-text-primary tracking-tight">Discover New Beats</h1>
       </header>
 
       {/* All songs */}
@@ -47,7 +47,7 @@ const Home = () => {
               {songs.map((song, index) => (
                 <div
                   key={index}
-                  className={`flex items-center justify-between truncate ${currentSong?._id === song._id ? 'theme-bg-selected' : 'theme-bg-secondary'} rounded-lg p-4 shadow-sm cursor-pointer hover:shadow-md transition-all group`}
+                  className={`flex items-center justify-between truncate ${currentSong?._id === song._id ? 'theme-bg-selected border-indigo-500/50' : 'theme-bg-secondary border-transparent'} border rounded-lg p-4 shadow-sm cursor-pointer hover:bg-white/5 transition-all group`}
                   onClick={() => handleSongClick(song)}
                 >
                   <div className="flex items-center flex-1">

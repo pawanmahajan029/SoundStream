@@ -36,15 +36,15 @@ const Rooms = () => {
     return (
         <div className="flex flex-col h-full w-full">
             {/* Top Title Header */}
-            <header className="glass-panel w-full theme-bg-secondary border shadow-sm rounded-xl py-5 px-8 mb-8 flex items-center h-20">
-                <h1 className="text-2xl font-bold theme-text-primary tracking-tight">Live Listening Rooms</h1>
+            <header className="w-full theme-bg-secondary border theme-border shadow-[0_8px_30px_rgb(0,0,0,0.12)] rounded-xl py-5 px-8 mb-8 flex items-center h-20 bg-opacity-60 backdrop-blur-md">
+                <h1 className="text-2xl font-clash font-bold theme-text-primary tracking-tight">Live Listening Rooms</h1>
             </header>
 
             <main className="flex-1 pb-16">
                 {!roomId ? (
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
                         {/* Create Room Card */}
-                        <div className="theme-bg-secondary rounded-xl p-8 border theme-border shadow-md hover:shadow-lg transition-shadow">
+                        <div className="theme-bg-secondary rounded-xl p-8 border theme-border shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.2)] transition-shadow">
                             <div className="flex items-center gap-3 mb-4">
                                 <svg className="w-6 h-6 text-purple-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                                     <path d="M3 18v-6a9 9 0 0 1 18 0v6"></path>
@@ -64,7 +64,7 @@ const Rooms = () => {
                         </div>
 
                         {/* Join Room Card */}
-                        <div className="theme-bg-secondary rounded-xl p-8 border theme-border shadow-md hover:shadow-lg transition-shadow">
+                        <div className="theme-bg-secondary rounded-xl p-8 border theme-border shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.2)] transition-shadow">
                             <div className="flex items-center gap-3 mb-4">
                                 <svg className="w-6 h-6 text-purple-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                                     <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
@@ -99,7 +99,7 @@ const Rooms = () => {
                     <div className="flex flex-col lg:flex-row gap-6 max-w-6xl mx-auto h-[600px]">
                         {/* Participants Panel */}
                         <div className="w-full lg:w-1/3 flex flex-col gap-4">
-                            <div className="theme-bg-secondary rounded-xl p-6 border theme-border shadow-sm flex flex-col gap-2">
+                            <div className="theme-bg-secondary rounded-xl p-6 border theme-border shadow-[0_8px_30px_rgb(0,0,0,0.12)] flex flex-col gap-2">
                                 <div className="flex items-center justify-between mb-2">
                                     <h2 className="text-lg font-bold theme-text-primary">Room Info</h2>
                                     <button onClick={leaveRoom} className="text-red-400 hover:text-red-500 text-sm font-medium cursor-pointer">Leave</button>
@@ -110,7 +110,7 @@ const Rooms = () => {
                                 </div>
                             </div>
 
-                            <div className="theme-bg-secondary rounded-xl p-6 border theme-border shadow-sm flex-1 overflow-y-auto">
+                            <div className="theme-bg-secondary rounded-xl p-6 border theme-border shadow-[0_8px_30px_rgb(0,0,0,0.12)] flex-1 overflow-y-auto">
                                 <h3 className="text-md font-bold theme-text-primary mb-4 flex items-center justify-between">
                                     Participants
                                     <span className="bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-300 text-xs px-2 py-1 rounded-full">{participants.length}</span>
@@ -131,7 +131,7 @@ const Rooms = () => {
                         </div>
 
                         {/* Chat Panel */}
-                        <div className="w-full lg:w-2/3 theme-bg-secondary rounded-xl border theme-border shadow-sm flex flex-col overflow-hidden">
+                        <div className="w-full lg:w-2/3 theme-bg-secondary rounded-xl border theme-border shadow-[0_8px_30px_rgb(0,0,0,0.12)] flex flex-col overflow-hidden">
                             <div className="p-4 border-b theme-border bg-gray-50/50 dark:bg-gray-800/50">
                                 <h3 className="font-bold theme-text-primary flex items-center gap-2">
                                     <svg className="w-5 h-5 text-purple-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">

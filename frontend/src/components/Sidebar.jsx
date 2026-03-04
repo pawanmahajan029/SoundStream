@@ -13,7 +13,7 @@ const Sidebar = () => {
         dispatch(logoutUser());
     };
     return (
-        <aside className="w-full h-full theme-bg-secondary border-r theme-border flex flex-col pt-8 pb-6 px-3 shadow-2xl z-40">
+        <aside className="w-full h-full theme-bg-secondary border-r border-white/5 flex flex-col pt-8 pb-6 px-3 shadow-2xl z-40">
             {/* Logo Section */}
             <div className="mb-10 px-2 scale-110 origin-left">
                 <InnerLogo />
@@ -23,7 +23,7 @@ const Sidebar = () => {
             <nav className="flex flex-col gap-2 flex-1">
                 <NavLink
                     to="/"
-                    className={({ isActive }) => `w-full flex items-center gap-4 px-4 py-3.5 rounded-xl transition-all font-medium ${isActive ? 'bg-gradient-to-r from-purple-500 to-blue-500 text-white shadow-md' : 'text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800 dark:text-gray-400'}`}
+                    className={({ isActive }) => `w-full flex items-center gap-4 px-4 py-3.5 rounded-xl transition-all font-medium ${isActive ? 'bg-gradient-to-r from-purple-600 to-blue-600 text-white shadow-md' : 'text-gray-500 hover:bg-gray-100 dark:hover:bg-white/5 dark:text-gray-400'}`}
                 >
                     <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
@@ -34,7 +34,7 @@ const Sidebar = () => {
 
                 <NavLink
                     to="/search"
-                    className={({ isActive }) => `w-full flex items-center gap-4 px-4 py-3.5 rounded-xl transition-all font-medium ${isActive ? 'bg-gradient-to-r from-purple-500 to-blue-500 text-white shadow-md' : 'text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800 dark:text-gray-400'}`}
+                    className={({ isActive }) => `w-full flex items-center gap-4 px-4 py-3.5 rounded-xl transition-all font-medium ${isActive ? 'bg-gradient-to-r from-purple-600 to-blue-600 text-white shadow-md' : 'text-gray-500 hover:bg-gray-100 dark:hover:bg-white/5 dark:text-gray-400'}`}
                 >
                     <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <circle cx="11" cy="11" r="8" />
@@ -45,7 +45,7 @@ const Sidebar = () => {
 
                 <NavLink
                     to="/rooms"
-                    className={({ isActive }) => `w-full flex items-center gap-4 px-4 py-3.5 rounded-xl transition-all font-medium ${isActive ? 'bg-gradient-to-r from-purple-500 to-blue-500 text-white shadow-md' : 'text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800 dark:text-gray-400'}`}
+                    className={({ isActive }) => `w-full flex items-center gap-4 px-4 py-3.5 rounded-xl transition-all font-medium ${isActive ? 'bg-gradient-to-r from-purple-600 to-blue-600 text-white shadow-md' : 'text-gray-500 hover:bg-gray-100 dark:hover:bg-white/5 dark:text-gray-400'}`}
                 >
                     <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
@@ -59,7 +59,7 @@ const Sidebar = () => {
                 {userRole === 'artist' && (
                     <NavLink
                         to="/upload-music"
-                        className={({ isActive }) => `w-full flex items-center gap-4 px-4 py-3.5 rounded-xl transition-all font-medium ${isActive ? 'bg-gradient-to-r from-purple-500 to-blue-500 text-white shadow-md' : 'text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800 dark:text-gray-400'}`}
+                        className={({ isActive }) => `w-full flex items-center gap-4 px-4 py-3.5 rounded-xl transition-all font-medium ${isActive ? 'bg-gradient-to-r from-purple-600 to-blue-600 text-white shadow-md' : 'text-gray-500 hover:bg-gray-100 dark:hover:bg-white/5 dark:text-gray-400'}`}
                     >
                         <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />

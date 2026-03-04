@@ -48,7 +48,7 @@ const BottomPlayer = () => {
     }
 
     return (
-        <div className="w-full h-full z-50 bg-indigo-100 theme-bg-player theme-border border-t py-2 px-6 shadow-2xl backdrop-blur-md">
+        <div className="w-full h-full z-50 theme-bg-player border-t border-white/5 py-2 px-6 shadow-[0_-10px_40px_rgba(0,0,0,0.3)] backdrop-blur-xl">
             <div className="flex items-center justify-between h-full max-w-screen-2xl mx-auto">
 
                 {/* Left: Song Info */}
