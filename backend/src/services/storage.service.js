@@ -22,12 +22,8 @@ export function uploadAudioFileLocally(file, fileName) {
         const filePath = path.join(uploadsDir, 'audio-files', savedFileName);
 
         fs.writeFile(filePath, file.buffer, (err) => {
-            if (err) {
-                console.error("Local audio write error:", err);
-                reject(err);
-            } else {
-                resolve({ url: `/uploads/audio-files/${savedFileName}` });
-            }
+            if (err) { console.error("Local audio write error:", err); reject(err); }
+            else resolve({ url: `/uploads/audio-files/${savedFileName}` });
         });
     });
 }
@@ -40,12 +36,8 @@ export function uploadPosterFileLocally(file, fileName) {
         const filePath = path.join(uploadsDir, 'posters', savedFileName);
 
         fs.writeFile(filePath, file.buffer, (err) => {
-            if (err) {
-                console.error("Local poster write error:", err);
-                reject(err);
-            } else {
-                resolve({ url: `/uploads/posters/${savedFileName}` });
-            }
+            if (err) { console.error("Local poster write error:", err); reject(err); }
+            else resolve({ url: `/uploads/posters/${savedFileName}` });
         });
     });
 }
@@ -53,14 +45,12 @@ export function uploadPosterFileLocally(file, fileName) {
 export function deleteFileLocally(fileUrl) {
     if (!fileUrl) return;
     try {
-        // e.g. http://localhost:3000/uploads/audio-files/audio-123.mp3
-        const urlObj = new URL(fileUrl);
-        const urlPath = urlObj.pathname; // /uploads/audio-files/audio-123.mp3
+        // Handle both relative (/uploads/...) and absolute (http://...) URLs
+        let urlPath = fileUrl.startsWith('http') ? new URL(fileUrl).pathname : fileUrl;
 
         if (urlPath.startsWith('/uploads/')) {
-            const relativePath = urlPath.replace('/uploads/', ''); // audio-files/audio-123.mp3
+            const relativePath = urlPath.replace('/uploads/', '');
             const absolutePath = path.join(uploadsDir, relativePath);
-
             if (fs.existsSync(absolutePath)) {
                 fs.unlinkSync(absolutePath);
             }

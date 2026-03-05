@@ -1,17 +1,19 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { logoutUser } from '../../store/authSlice';
 import ThemeToggle from './ThemeToggle';
 import InnerLogo from './InnerLogo';
 
 const Sidebar = () => {
     const dispatch = useDispatch();
-    const userRole = localStorage.getItem('userRole') || 'listener';
+    const { user } = useSelector(state => state.auth);
+    const userRole = user?.role || localStorage.getItem('userRole') || 'listener';
 
     const handleLogout = () => {
         dispatch(logoutUser());
     };
+
     return (
         <aside className="w-full h-full theme-bg-secondary border-r border-white/5 flex flex-col pt-8 pb-6 px-3 shadow-2xl z-40">
             {/* Logo Section */}
@@ -85,8 +87,25 @@ const Sidebar = () => {
                 )}
             </nav>
 
-            {/* Bottom Section (Theme Toggle & Logout) */}
-            <div className="mt-auto border-t theme-border pt-4">
+            {/* Bottom Section */}
+            <div className="mt-auto border-t theme-border pt-4 space-y-1">
+
+                {/* User Profile Card - shows email and role badge */}
+                {user && (
+                    <div className="flex items-center gap-3 px-3 py-2 rounded-lg theme-bg-tertiary mb-2">
+                        {/* Avatar: first letter of email, color differs by role */}
+                        <div className={`w-8 h-8 rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0 ${userRole === 'creator' ? 'bg-gradient-to-br from-purple-500 to-blue-500' : 'bg-gradient-to-br from-blue-500 to-cyan-500'}`}>
+                            {user.email?.[0]?.toUpperCase() || '?'}
+                        </div>
+                        <div className="flex-1 min-w-0">
+                            <p className="text-xs theme-text-primary font-medium truncate">{user.email}</p>
+                            <span className={`inline-block text-xs font-semibold px-1.5 py-0.5 rounded-full mt-0.5 ${userRole === 'creator' ? 'bg-purple-500/20 text-purple-400' : 'bg-blue-500/20 text-blue-400'}`}>
+                                {userRole === 'creator' ? '🎵 Creator' : '🎧 Listener'}
+                            </span>
+                        </div>
+                    </div>
+                )}
+
                 <div className="flex items-center gap-3 px-3 py-2 text-sm text-gray-500 dark:text-gray-400 font-medium">
                     <ThemeToggle />
                     <span>Theme Switch</span>

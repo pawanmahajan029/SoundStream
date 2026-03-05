@@ -14,10 +14,14 @@ const Home = () => {
     if (!isPlaying) dispatch(togglePlayPause());
   }
 
-  const handleDelete = (e, songId) => {
+  const handleDelete = async (e, songId) => {
     e.stopPropagation();
     if (window.confirm("Are you sure you want to delete this song?")) {
-      dispatch(deleteSong(songId));
+      try {
+        await dispatch(deleteSong(songId)).unwrap();
+      } catch (err) {
+        alert(`Could not delete: ${err}`);
+      }
     }
   }
 
@@ -80,10 +84,10 @@ const Home = () => {
                         ></div>
                       </div>
                     )}
-                    {userRole === 'creator' && song.user === user?._id && (
+                    {userRole === 'creator' && (
                       <button
                         onClick={(e) => handleDelete(e, song._id)}
-                        className="p-2 text-red-500 bg-red-500/10 hover:bg-red-500/20 rounded-full transition-colors ml-2"
+                        className="p-2 text-red-500 bg-red-500/10 hover:bg-red-500/20 rounded-full transition-colors ml-2 opacity-0 group-hover:opacity-100"
                         title="Delete song"
                       >
                         <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">

@@ -44,8 +44,8 @@ export async function deleteSongController(req, res) {
             return res.status(404).json({ message: "Song not found" });
         }
 
-        // Check if the user is the owner
-        if (song.user.toString() !== req.user._id.toString()) {
+        // Check if the user is the owner (skip check for legacy songs with no user set)
+        if (song.user && song.user.toString() !== req.user._id.toString()) {
             return res.status(403).json({ success: false, message: "Forbidden: You don't have permission to delete this song" });
         }
 
