@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { setCurrentSong, togglePlayPause } from '../store/musicSlice';
-import { useSocket } from '../context/SocketContext';
+import { setCurrentSong, togglePlayPause } from '../../store/musicSlice';
+import { useSocket } from '../../context/SocketContext';
 
 const Rooms = () => {
     const dispatch = useDispatch()

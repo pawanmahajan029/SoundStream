@@ -20,10 +20,10 @@ export const authMiddleware = async (req, res, next) => {
     }
 };
 
-export const requireArtist = async (req, res, next) => {
-    if (req.user && req.user.role === 'artist') {
+export const requireCreator = async (req, res, next) => {
+    if (req.user && req.user.role === 'creator') {
         next();
     } else {
-        return res.status(403).json({ success: false, message: 'Forbidden: Artists only' });
+        return res.status(403).json({ success: false, message: 'Forbidden: Creators only' });
     }
 };

@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { setCurrentSong, togglePlayPause } from '../store/musicSlice'
+import { setCurrentSong, togglePlayPause } from '../../store/musicSlice'
 
 const Search = () => {
   const dispatch = useDispatch()

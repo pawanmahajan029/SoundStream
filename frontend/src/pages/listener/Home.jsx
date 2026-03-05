@@ -1,12 +1,13 @@
 import { useSelector, useDispatch } from 'react-redux'
-import { setCurrentSong, togglePlayPause, fetchSongs, deleteSong } from '../store/musicSlice'
+import { setCurrentSong, togglePlayPause, fetchSongs, deleteSong } from '../../store/musicSlice'
 
 // Animation is now defined in index.css - no need for inline styles
 
 const Home = () => {
   const dispatch = useDispatch()
   const { songs, currentSong, isPlaying, loading, error } = useSelector(state => state.music)
-  const userRole = localStorage.getItem('userRole') || 'listener';
+  const { user } = useSelector(state => state.auth)
+  const userRole = user?.role || 'listener';
 
   const handleSongClick = (song) => {
     dispatch(setCurrentSong(song));
@@ -79,7 +80,7 @@ const Home = () => {
                         ></div>
                       </div>
                     )}
-                    {userRole === 'artist' && (
+                    {userRole === 'creator' && song.user === user?._id && (
                       <button
                         onClick={(e) => handleDelete(e, song._id)}
                         className="p-2 text-red-500 bg-red-500/10 hover:bg-red-500/20 rounded-full transition-colors ml-2"

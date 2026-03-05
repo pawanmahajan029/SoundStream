@@ -2,21 +2,23 @@ import React, { useEffect } from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchSongs } from '../store/musicSlice'
-import Home from '../pages/Home'
-import Search from '../pages/Search'
-import Rooms from '../pages/Rooms'
-import UploadMusic from '../pages/UploadMusic'
-import Layout from '../components/Layout'
-import Landing from '../pages/Landing'
+import Home from '../pages/listener/Home'
+import Search from '../pages/listener/Search'
+import Rooms from '../pages/listener/Rooms'
+import UploadMusic from '../pages/creator/UploadMusic'
+import CreatorDashboard from '../pages/creator/CreatorDashboard'
+import Layout from '../components/shared/Layout'
+import Landing from '../pages/auth/Landing'
 
 const PrivateRoute = ({ children }) => {
     const { isAuthenticated } = useSelector((state) => state.auth);
     return isAuthenticated ? children : <Navigate to="/" replace />;
 };
 
-const ArtistRoute = ({ children }) => {
-    const userRole = localStorage.getItem('userRole') || 'listener';
-    return userRole === 'artist' ? children : <Navigate to="/home" replace />;
+const CreatorRoute = ({ children }) => {
+    const { user } = useSelector((state) => state.auth);
+    const userRole = user?.role || localStorage.getItem('userRole') || 'listener';
+    return userRole === 'creator' ? children : <Navigate to="/home" replace />;
 };
 
 const appRoutes = [
@@ -37,8 +39,12 @@ const appRoutes = [
         element: <PrivateRoute><Layout><Rooms /></Layout></PrivateRoute>
     },
     {
+        path: '/creator-dashboard',
+        element: <PrivateRoute><CreatorRoute><Layout><CreatorDashboard /></Layout></CreatorRoute></PrivateRoute>
+    },
+    {
         path: '/upload-music',
-        element: <PrivateRoute><ArtistRoute><Layout><UploadMusic /></Layout></ArtistRoute></PrivateRoute>
+        element: <PrivateRoute><CreatorRoute><Layout><UploadMusic /></Layout></CreatorRoute></PrivateRoute>
     }
 ]
 

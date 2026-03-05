@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import { IoArrowBackOutline } from "react-icons/io5";
 import { useNavigate } from 'react-router-dom'
-import api from '../config/api'
+import api from '../../config/api'
 import { useDispatch } from 'react-redux'
-import { fetchSongs } from '../store/musicSlice'
-import FileDropzone from '../components/FileDropzone';
+import { fetchSongs } from '../../store/musicSlice'
+import FileDropzone from '../../components/creator/FileDropzone';
 
 const UploadMusic = () => {
   const navigate = useNavigate()

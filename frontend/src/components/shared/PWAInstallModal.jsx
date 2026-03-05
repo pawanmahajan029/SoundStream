@@ -1,10 +1,10 @@
 import React from 'react';
-import { usePWAInstall } from '../hooks/usePWAInstall';
+import { usePWAInstall } from '../../hooks/usePWAInstall';
 import { IoMdMusicalNote } from "react-icons/io";
 
 const PWAInstallModal = ({ isOpen, onClose }) => {
   const { install, getInstallInstructions, isInstallable, installPrompt } = usePWAInstall();
-  
+
   if (!isOpen) return null;
 
   const instructions = getInstallInstructions();

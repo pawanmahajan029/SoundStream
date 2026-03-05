@@ -16,6 +16,11 @@ const songSchema = new mongoose.Schema({
     poster: {
         type: String,
         required: true
+    },
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
     }
 }, { timestamps: true })  // This will add createdAt and updatedAt fields automatically
 

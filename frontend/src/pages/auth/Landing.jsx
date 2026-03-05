@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { loginUser, registerUser, clearError } from '../store/authSlice';
+import { loginUser, registerUser, clearError } from '../../store/authSlice';
 
 const Landing = () => {
     const navigate = useNavigate();
@@ -10,7 +10,7 @@ const Landing = () => {
 
     // Flow State: 1 (Role Selection) -> 2 (Action Choice: Login/Register) -> 3 (Form Fill)
     const [step, setStep] = useState(1);
-    const [selectedRole, setSelectedRole] = useState(null); // 'listener' | 'artist'
+    const [selectedRole, setSelectedRole] = useState(null); // 'listener' | 'creator'
     const [authAction, setAuthAction] = useState(null);     // 'login' | 'register'
 
     // Form State
@@ -133,7 +133,7 @@ const Landing = () => {
                                 </button>
 
                                 <button
-                                    onClick={() => handleRoleSelect('artist')}
+                                    onClick={() => handleRoleSelect('creator')}
                                     className="group relative w-full flex items-center p-6 rounded-2xl border text-left transition-all duration-300 bg-transparent border-white/5 hover:border-purple-500/50 hover:bg-white-[0.02]"
                                 >
                                     <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-purple-500/10 text-purple-400 mr-5 transition-transform border border-purple-500/20 group-hover:scale-105">
@@ -155,7 +155,7 @@ const Landing = () => {
                         <div className="animate-fade-in">
                             <div className="mb-10">
                                 <span className="uppercase tracking-widest text-xs font-semibold text-gray-500 mb-2 block">
-                                    {selectedRole === 'artist' ? 'CREATOR WORKSPACE' : 'AUDIOPHILE WORKSPACE'}
+                                    {selectedRole === 'creator' ? 'CREATOR WORKSPACE' : 'LISTENER WORKSPACE'}
                                 </span>
                                 <h2 className="text-3xl font-semibold text-gray-100 mb-3 font-clash">Welcome</h2>
                                 <p className="text-gray-400">Do you already have an account?</p>
@@ -164,9 +164,9 @@ const Landing = () => {
                             <div className="flex flex-col gap-4">
                                 <button
                                     onClick={() => handleActionSelect('login')}
-                                    className={`w-full py-4 rounded-xl border font-semibold tracking-wide transition-all ${selectedRole === 'artist'
-                                            ? 'bg-purple-600 hover:bg-purple-500 border-purple-500 text-white shadow-[0_0_20px_rgba(168,85,247,0.2)]'
-                                            : 'bg-blue-600 hover:bg-blue-500 border-blue-500 text-white shadow-[0_0_20px_rgba(59,130,246,0.2)]'
+                                    className={`w-full py-4 rounded-xl border font-semibold tracking-wide transition-all ${selectedRole === 'creator'
+                                        ? 'bg-purple-600 hover:bg-purple-500 border-purple-500 text-white shadow-[0_0_20px_rgba(168,85,247,0.2)]'
+                                        : 'bg-blue-600 hover:bg-blue-500 border-blue-500 text-white shadow-[0_0_20px_rgba(59,130,246,0.2)]'
                                         }`}
                                 >
                                     Yes, Log into my Account
@@ -187,9 +187,9 @@ const Landing = () => {
                         <div className="animate-fade-in">
                             <div className="mb-10">
                                 <div className="flex items-center gap-2 mb-2">
-                                    <span className={`w-2 h-2 rounded-full ${selectedRole === 'artist' ? 'bg-purple-500' : 'bg-blue-500'}`}></span>
+                                    <span className={`w-2 h-2 rounded-full ${selectedRole === 'creator' ? 'bg-purple-500' : 'bg-blue-500'}`}></span>
                                     <span className="uppercase tracking-widest text-xs font-semibold text-gray-500">
-                                        {selectedRole === 'artist' ? 'CREATOR ' : 'AUDIOPHILE '}
+                                        {selectedRole === 'creator' ? 'CREATOR ' : 'LISTENER '}
                                         {authAction === 'login' ? 'SIGN IN' : 'REGISTRATION'}
                                     </span>
                                 </div>
@@ -217,7 +217,7 @@ const Landing = () => {
                                         required
                                         value={email}
                                         onChange={(e) => setEmail(e.target.value)}
-                                        className={`w-full bg-[#0A0A16] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:ring-1 transition-all ${selectedRole === 'artist' ? 'focus:border-purple-500/50 focus:ring-purple-500/50' : 'focus:border-blue-500/50 focus:ring-blue-500/50'
+                                        className={`w-full bg-[#0A0A16] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:ring-1 transition-all ${selectedRole === 'creator' ? 'focus:border-purple-500/50 focus:ring-purple-500/50' : 'focus:border-blue-500/50 focus:ring-blue-500/50'
                                             }`}
                                         placeholder="you@example.com"
                                     />
@@ -229,7 +229,7 @@ const Landing = () => {
                                         required
                                         value={password}
                                         onChange={(e) => setPassword(e.target.value)}
-                                        className={`w-full bg-[#0A0A16] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:ring-1 transition-all ${selectedRole === 'artist' ? 'focus:border-purple-500/50 focus:ring-purple-500/50' : 'focus:border-blue-500/50 focus:ring-blue-500/50'
+                                        className={`w-full bg-[#0A0A16] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:ring-1 transition-all ${selectedRole === 'creator' ? 'focus:border-purple-500/50 focus:ring-purple-500/50' : 'focus:border-blue-500/50 focus:ring-blue-500/50'
                                             }`}
                                         placeholder="••••••••"
                                     />
@@ -238,9 +238,9 @@ const Landing = () => {
                                 <button
                                     type="submit"
                                     disabled={loading}
-                                    className={`mt-4 w-full text-white font-semibold py-3.5 rounded-xl transition-all flex items-center justify-center disabled:opacity-70 disabled:active:scale-100 ${selectedRole === 'artist'
-                                            ? 'bg-purple-600 hover:bg-purple-500 active:scale-[0.98]'
-                                            : 'bg-blue-600 hover:bg-blue-500 active:scale-[0.98]'
+                                    className={`mt-4 w-full text-white font-semibold py-3.5 rounded-xl transition-all flex items-center justify-center disabled:opacity-70 disabled:active:scale-100 ${selectedRole === 'creator'
+                                        ? 'bg-purple-600 hover:bg-purple-500 active:scale-[0.98]'
+                                        : 'bg-blue-600 hover:bg-blue-500 active:scale-[0.98]'
                                         }`}
                                 >
                                     {loading ? (

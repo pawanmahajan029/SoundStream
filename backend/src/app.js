@@ -1,5 +1,6 @@
 import express from 'express';
-import songRoutes from './routes/song.routes.js';
+import creatorRoutes from './routes/creator.routes.js';
+import listenerRoutes from './routes/listener.routes.js';
 import authRoutes from './routes/auth.routes.js';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
@@ -58,7 +59,8 @@ app.use(cookieParser())             // middleware to parse cookies from request
 // Serve locally uploaded files
 app.use('/uploads', express.static(path.join(__dirname, '../uploads')))
 
-app.use('/song', songRoutes)      // middleware to use songs routes
+app.use('/song', listenerRoutes)    // listener can get songs
+app.use('/song', creatorRoutes)     // creator can upload/delete songs
 app.use('/auth', authRoutes)      // middleware to use auth routes
 
 export default app;

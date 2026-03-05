@@ -12,7 +12,7 @@ const userSchema = new mongoose.Schema({
     },
     role: {
         type: String,
-        enum: ['listener', 'artist'],
+        enum: ['listener', 'creator'],
         default: 'listener'
     }
 }, { timestamps: true });

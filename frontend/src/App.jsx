@@ -6,7 +6,7 @@ import { AudioProvider } from './context/AudioContext'
 import { ThemeProvider } from './context/ThemeContext'
 import { SocketProvider } from './context/SocketContext'
 import AppRoutes from './routes/AppRoutes'
-import PWABadge from './components/PWABadge'
+import PWABadge from './components/shared/PWABadge'
 
 const App = () => {
   return (

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useAudio } from '../context/AudioContext';
-import { setCurrentSong, togglePlayPause } from '../store/musicSlice';
+import { useAudio } from '../../context/AudioContext';
+import { setCurrentSong, togglePlayPause } from '../../store/musicSlice';
 
 const BottomPlayer = () => {
     const dispatch = useDispatch();

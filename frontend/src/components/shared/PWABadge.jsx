@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { usePWAInstall } from '../hooks/usePWAInstall';
+import { usePWAInstall } from '../../hooks/usePWAInstall';
 import PWAInstallModal from './PWAInstallModal';
 import { IoMdMusicalNote } from "react-icons/io";
 
@@ -8,7 +8,7 @@ const PWABadge = () => {
   const [updateSW, setUpdateSW] = useState(null);
   const [showInstallBanner, setShowInstallBanner] = useState(false);
   const [showInstallModal, setShowInstallModal] = useState(false);
-  
+
   const { isInstallable, isInstalled, install } = usePWAInstall();
 
   useEffect(() => {
@@ -17,7 +17,7 @@ const PWABadge = () => {
       navigator.serviceWorker.register('/sw.js')
         .then((registration) => {
           console.log('SW registered:', registration);
-          
+
           // Listen for updates
           registration.addEventListener('updatefound', () => {
             const newWorker = registration.installing;
@@ -171,9 +171,9 @@ const PWABadge = () => {
       )}
 
       {/* Install Modal */}
-      <PWAInstallModal 
-        isOpen={showInstallModal} 
-        onClose={() => setShowInstallModal(false)} 
+      <PWAInstallModal
+        isOpen={showInstallModal}
+        onClose={() => setShowInstallModal(false)}
       />
     </div>
   );

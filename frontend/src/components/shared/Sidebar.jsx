@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { logoutUser } from '../store/authSlice';
+import { logoutUser } from '../../store/authSlice';
 import ThemeToggle from './ThemeToggle';
 import InnerLogo from './InnerLogo';
 
@@ -56,18 +56,32 @@ const Sidebar = () => {
                     Listen Together
                 </NavLink>
 
-                {userRole === 'artist' && (
-                    <NavLink
-                        to="/upload-music"
-                        className={({ isActive }) => `w-full flex items-center gap-4 px-4 py-3.5 rounded-xl transition-all font-medium ${isActive ? 'bg-gradient-to-r from-purple-600 to-blue-600 text-white shadow-md' : 'text-gray-500 hover:bg-gray-100 dark:hover:bg-white/5 dark:text-gray-400'}`}
-                    >
-                        <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                            <polyline points="17 8 12 3 7 8" />
-                            <line x1="12" y1="3" x2="12" y2="15" />
-                        </svg>
-                        Upload
-                    </NavLink>
+                {userRole === 'creator' && (
+                    <>
+                        <NavLink
+                            to="/creator-dashboard"
+                            className={({ isActive }) => `w-full flex items-center gap-4 px-4 py-3.5 rounded-xl transition-all font-medium ${isActive ? 'bg-gradient-to-r from-purple-600 to-blue-600 text-white shadow-md' : 'text-gray-500 hover:bg-gray-100 dark:hover:bg-white/5 dark:text-gray-400'}`}
+                        >
+                            <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                <rect x="3" y="3" width="7" height="7" />
+                                <rect x="14" y="3" width="7" height="7" />
+                                <rect x="14" y="14" width="7" height="7" />
+                                <rect x="3" y="14" width="7" height="7" />
+                            </svg>
+                            Dashboard
+                        </NavLink>
+                        <NavLink
+                            to="/upload-music"
+                            className={({ isActive }) => `w-full flex items-center gap-4 px-4 py-3.5 rounded-xl transition-all font-medium ${isActive ? 'bg-gradient-to-r from-purple-600 to-blue-600 text-white shadow-md' : 'text-gray-500 hover:bg-gray-100 dark:hover:bg-white/5 dark:text-gray-400'}`}
+                        >
+                            <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                                <polyline points="17 8 12 3 7 8" />
+                                <line x1="12" y1="3" x2="12" y2="15" />
+                            </svg>
+                            Upload
+                        </NavLink>
+                    </>
                 )}
             </nav>
 
