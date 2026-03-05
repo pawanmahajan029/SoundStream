@@ -24,7 +24,7 @@ const corsOptions = {
             ? [config.FRONTEND_URL].filter(Boolean)  // Production: only frontend URL from environment
             : [
                 config.FRONTEND_URL,
-                'http://localhost:3000',  // For local development
+                'http://localhost:4000',  // For local development
                 'http://localhost:5173',  // For Vite dev server
                 'http://localhost:4173',  // For Vite preview
                 'http://10.45.115.129:5173', // Your network IP
@@ -34,7 +34,7 @@ const corsOptions = {
         // In development, also allow any local network IP with port 5173
         const isLocalNetworkOrigin = process.env.NODE_ENV === 'development' &&
             origin &&
-            (origin.includes(':5173') || origin.includes(':3000') || origin.includes(':4173')) &&
+            (origin.includes(':5173') || origin.includes(':4000') || origin.includes(':4173')) &&
             (origin.startsWith('http://localhost') ||
                 origin.startsWith('http://127.0.0.1') ||
                 origin.match(/^http:\/\/192\.168\.\d{1,3}\.\d{1,3}:\d+$/) ||

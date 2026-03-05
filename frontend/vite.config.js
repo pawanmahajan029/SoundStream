@@ -6,7 +6,7 @@ import { VitePWA } from 'vite-plugin-pwa'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
-    tailwindcss(), 
+    tailwindcss(),
     react(),
     VitePWA({
       registerType: 'autoUpdate',
@@ -101,10 +101,15 @@ export default defineConfig({
     port: 5173,
     proxy: {                                            // Proxy all /api requests to your backend server
       '/api': {
-        target: 'http://localhost:3000',                // Your backend server URL
+        target: 'http://localhost:4000',                // Your backend server URL
         changeOrigin: true,                             // Needed for virtual hosted sites
-        rewrite: (path) => path.replace(/^\/api/, ''),  // Remove /api prefix and write 'http://localhost:3000' when forwarding to backend
+        rewrite: (path) => path.replace(/^\/api/, ''),  // Remove /api prefix and write 'http://localhost:4000' when forwarding to backend
         secure: false,                                  // Allow insecure connections in development
+      },
+      '/uploads': {
+        target: 'http://localhost:4000',                // Proxy static uploads (audio, posters) to backend
+        changeOrigin: true,
+        secure: false,
       }
     }
   },
@@ -117,7 +122,7 @@ export default defineConfig({
 /*
 How This Works:
 • When your frontend makes a request to /api/auth/login
-• Vite will proxy it to http://localhost:3000/auth/login
+• Vite will proxy it to http://localhost:4000/auth/login
 • This happens automatically and transparently
 */
 

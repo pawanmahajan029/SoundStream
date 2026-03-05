@@ -15,8 +15,8 @@ export const SocketProvider = ({ children }) => {
 
     useEffect(() => {
         // Initialize socket connection to backend
-        // In dev, use localhost:3000 where backend runs. In prod, standard window location.
-        const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3000';
+        // In dev, use localhost:4000 where backend runs. In prod, standard window location.
+        const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:4000';
 
         const newSocket = io(backendUrl, {
             withCredentials: true,

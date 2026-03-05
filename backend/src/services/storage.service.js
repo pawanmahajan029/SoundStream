@@ -26,7 +26,7 @@ export function uploadAudioFileLocally(file, fileName) {
                 console.error("Local audio write error:", err);
                 reject(err);
             } else {
-                resolve({ url: `http://localhost:3000/uploads/audio-files/${savedFileName}` });
+                resolve({ url: `/uploads/audio-files/${savedFileName}` });
             }
         });
     });
@@ -44,7 +44,7 @@ export function uploadPosterFileLocally(file, fileName) {
                 console.error("Local poster write error:", err);
                 reject(err);
             } else {
-                resolve({ url: `http://localhost:3000/uploads/posters/${savedFileName}` });
+                resolve({ url: `/uploads/posters/${savedFileName}` });
             }
         });
     });
