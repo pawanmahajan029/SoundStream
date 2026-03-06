@@ -2,53 +2,61 @@
 
 /* CSS Variables for theme colors */
 :root {
-  --bg-primary: #f9fafb;
-  /* gray-50 - light background */
+  --bg-primary: #f8fafc;
+  /* slate-50 - clean, professional light background */
   --bg-secondary: #ffffff;
-  /* white - cards/components */
-  --bg-tertiary: #f3f4f6;
-  /* gray-100 - header/footer */
-  --bg-player: #e0e7ff;
-  /* indigo-100 - playing bar */
-  --bg-selected: linear-gradient(to right, #eff6ff, #e0e7ff);
-  /* blue-50 to indigo-50 */
-  --text-primary: #111827;
-  /* gray-900 - main text */
-  --text-secondary: #4b5563;
-  /* gray-600 - secondary text */
-  --text-tertiary: #6b7280;
-  /* gray-500 - muted text */
-  --music-bars: #9ca3af;
-  /* gray-400 - dancing bars */
-  --border-color: #d1d5db;
-  /* gray-300 - borders */
-  --border-selected: #dbeafe;
-  /* blue-100 - selected borders */
+  /* white - pristine cards/components */
+  --bg-tertiary: #f1f5f9;
+  /* slate-100 - subtle contrast for header/footer */
+  --bg-player: rgba(255, 255, 255, 0.9);
+  /* slightly translucent white for modern feel */
+  --bg-selected: linear-gradient(135deg, #f1f5f9, #e2e8f0);
+  /* subtle slate gradient for selected items */
+  --text-primary: #0f172a;
+  /* slate-900 - professional dark text */
+  --text-secondary: #334155;
+  /* slate-700 - smooth secondary text */
+  --text-tertiary: #64748b;
+  /* slate-500 - elegant muted text */
+  --accent-primary: #2563eb;
+  /* blue-600 - professional sapphire accent */
+  --accent-hover: #1d4ed8;
+  /* blue-700 - darker hover state */
+  --music-bars: #2563eb;
+  /* sapphire blue dancing bars */
+  --border-color: #e2e8f0;
+  /* slate-200 - crisp borders */
+  --border-selected: #cbd5e1;
+  /* slate-300 - selected border indicator */
 }
 
 .dark {
-  --bg-primary: #080812;
-  /* slate-900 - very dark background */
-  --bg-secondary: #0A0A16;
+  --bg-primary: #0f172a;
+  /* slate-900 - professional obsidian background */
+  --bg-secondary: #1e293b;
   /* slate-800 - dark cards */
-  --bg-tertiary: #05050A;
-  /* slate-700 - dark header/footer */
-  --bg-player: rgba(10, 10, 22, 0.8);
-  /* dark playing bar */
-  --bg-selected: linear-gradient(to right, rgba(30, 58, 138, 0.3), rgba(67, 56, 202, 0.3));
-  /* blue-900/30 to indigo-900/30 */
-  --text-primary: #f1f5f9;
-  /* slate-100 - light text */
+  --bg-tertiary: #020617;
+  /* slate-950 - deep dark contrast */
+  --bg-player: rgba(15, 23, 42, 0.9);
+  /* obsidian player bar */
+  --bg-selected: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(37, 99, 235, 0.05));
+  /* subtle sapphire tint */
+  --text-primary: #f8fafc;
+  /* slate-50 - light text */
   --text-secondary: #cbd5e1;
   /* slate-300 - secondary light text */
   --text-tertiary: #94a3b8;
   /* slate-400 - muted light text */
-  --music-bars: #64748b;
-  /* slate-500 - dancing bars (more dim and grayish) */
-  --border-color: rgba(255, 255, 255, 0.05);
-  /* slate-600 - dark borders */
-  --border-selected: rgba(99, 102, 241, 0.5);
-  /* blue-700 - selected borders in dark */
+  --accent-primary: #3b82f6;
+  /* blue-500 - brighter sapphire for dark mode */
+  --accent-hover: #60a5fa;
+  /* blue-400 - lighter sapphire hover */
+  --music-bars: #3b82f6;
+  /* brighter sapphire bars for dark */
+  --border-color: rgba(255, 255, 255, 0.06);
+  /* elegant thin borders */
+  --border-selected: rgba(59, 130, 246, 0.4);
+  /* sapphire selection border */
 }
 
 /* Global smooth transitions for theme changes */
@@ -122,6 +130,25 @@ body {
 
 .theme-border {
   border-color: var(--border-color);
+  transition: border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.theme-accent-bg {
+  background-color: var(--accent-primary);
+  transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.theme-accent-bg-hover:hover {
+  background-color: var(--accent-hover);
+}
+
+.theme-accent-text {
+  color: var(--accent-primary);
+  transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.theme-accent-border {
+  border-color: var(--accent-primary);
   transition: border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 

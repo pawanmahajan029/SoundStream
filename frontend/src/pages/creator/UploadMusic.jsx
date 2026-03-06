@@ -101,7 +101,7 @@ const UploadMusic = () => {
 
             {/* Selected File Names */}
             {(audioFile || imageFile) && (
-              <div className="bg-gray-50 dark:bg-[#1A1D2D] p-4 rounded-xl border theme-border flex flex-col gap-2 shadow-sm">
+              <div className="theme-bg-tertiary p-4 rounded-xl border theme-border flex flex-col gap-2 shadow-sm">
                 <h3 className="text-sm font-semibold theme-text-primary mb-1">Selected Files:</h3>
                 {audioFile && (
                   <div className="flex items-center gap-2">

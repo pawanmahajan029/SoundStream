@@ -25,7 +25,7 @@ const Sidebar = () => {
             <nav className="flex flex-col gap-2 flex-1">
                 <NavLink
                     to="/"
-                    className={({ isActive }) => `w-full flex items-center gap-4 px-4 py-3.5 rounded-xl transition-all font-medium ${isActive ? 'bg-gradient-to-r from-purple-600 to-blue-600 text-white shadow-md' : 'text-gray-500 hover:bg-gray-100 dark:hover:bg-white/5 dark:text-gray-400'}`}
+                    className={({ isActive }) => `w-full flex items-center gap-4 px-4 py-3.5 rounded-xl transition-all font-medium ${isActive ? 'theme-accent-bg text-white shadow-lg' : 'text-gray-500 hover:bg-slate-50 dark:hover:bg-blue-900/10 hover:theme-accent-text dark:text-gray-400'}`}
                 >
                     <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
@@ -36,7 +36,7 @@ const Sidebar = () => {
 
                 <NavLink
                     to="/search"
-                    className={({ isActive }) => `w-full flex items-center gap-4 px-4 py-3.5 rounded-xl transition-all font-medium ${isActive ? 'bg-gradient-to-r from-purple-600 to-blue-600 text-white shadow-md' : 'text-gray-500 hover:bg-gray-100 dark:hover:bg-white/5 dark:text-gray-400'}`}
+                    className={({ isActive }) => `w-full flex items-center gap-4 px-4 py-3.5 rounded-xl transition-all font-medium ${isActive ? 'theme-accent-bg text-white shadow-lg' : 'text-gray-500 hover:bg-slate-50 dark:hover:bg-blue-900/10 hover:theme-accent-text dark:text-gray-400'}`}
                 >
                     <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <circle cx="11" cy="11" r="8" />
@@ -47,7 +47,7 @@ const Sidebar = () => {
 
                 <NavLink
                     to="/rooms"
-                    className={({ isActive }) => `w-full flex items-center gap-4 px-4 py-3.5 rounded-xl transition-all font-medium ${isActive ? 'bg-gradient-to-r from-purple-600 to-blue-600 text-white shadow-md' : 'text-gray-500 hover:bg-gray-100 dark:hover:bg-white/5 dark:text-gray-400'}`}
+                    className={({ isActive }) => `w-full flex items-center gap-4 px-4 py-3.5 rounded-xl transition-all font-medium ${isActive ? 'theme-accent-bg text-white shadow-lg' : 'text-gray-500 hover:bg-slate-50 dark:hover:bg-blue-900/10 hover:theme-accent-text dark:text-gray-400'}`}
                 >
                     <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
@@ -62,7 +62,7 @@ const Sidebar = () => {
                     <>
                         <NavLink
                             to="/creator-dashboard"
-                            className={({ isActive }) => `w-full flex items-center gap-4 px-4 py-3.5 rounded-xl transition-all font-medium ${isActive ? 'bg-gradient-to-r from-purple-600 to-blue-600 text-white shadow-md' : 'text-gray-500 hover:bg-gray-100 dark:hover:bg-white/5 dark:text-gray-400'}`}
+                            className={({ isActive }) => `w-full flex items-center gap-4 px-4 py-3.5 rounded-xl transition-all font-medium ${isActive ? 'theme-accent-bg text-white shadow-lg' : 'text-gray-500 hover:bg-slate-50 dark:hover:bg-blue-900/10 hover:theme-accent-text dark:text-gray-400'}`}
                         >
                             <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                                 <rect x="3" y="3" width="7" height="7" />
@@ -74,7 +74,7 @@ const Sidebar = () => {
                         </NavLink>
                         <NavLink
                             to="/upload-music"
-                            className={({ isActive }) => `w-full flex items-center gap-4 px-4 py-3.5 rounded-xl transition-all font-medium ${isActive ? 'bg-gradient-to-r from-purple-600 to-blue-600 text-white shadow-md' : 'text-gray-500 hover:bg-gray-100 dark:hover:bg-white/5 dark:text-gray-400'}`}
+                            className={({ isActive }) => `w-full flex items-center gap-4 px-4 py-3.5 rounded-xl transition-all font-medium ${isActive ? 'theme-accent-bg text-white shadow-lg' : 'text-gray-500 hover:bg-slate-50 dark:hover:bg-blue-900/10 hover:theme-accent-text dark:text-gray-400'}`}
                         >
                             <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
@@ -94,13 +94,13 @@ const Sidebar = () => {
                 {user && (
                     <div className="flex items-center gap-3 px-3 py-2 rounded-lg theme-bg-tertiary mb-2">
                         {/* Avatar: first letter of email, color differs by role */}
-                        <div className={`w-8 h-8 rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0 ${userRole === 'creator' ? 'bg-gradient-to-br from-purple-500 to-blue-500' : 'bg-gradient-to-br from-blue-500 to-cyan-500'}`}>
+                        <div className={`w-8 h-8 rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0 theme-accent-bg shadow-sm`}>
                             {user.email?.[0]?.toUpperCase() || '?'}
                         </div>
                         <div className="flex-1 min-w-0">
                             <p className="text-xs theme-text-primary font-medium truncate">{user.email}</p>
-                            <span className={`inline-block text-xs font-semibold px-1.5 py-0.5 rounded-full mt-0.5 ${userRole === 'creator' ? 'bg-purple-500/20 text-purple-400' : 'bg-blue-500/20 text-blue-400'}`}>
-                                {userRole === 'creator' ? '🎵 Creator' : '🎧 Listener'}
+                            <span className={`inline-block text-xs font-semibold px-1.5 py-0.5 rounded-full mt-0.5 ${userRole === 'creator' ? 'bg-amber-500/10 text-amber-600 dark:text-amber-400' : 'theme-accent-bg text-white opacity-80'}`}>
+                                {userRole === 'creator' ? '⭐ Creator' : '🎧 Listener'}
                             </span>
                         </div>
                     </div>
@@ -113,7 +113,7 @@ const Sidebar = () => {
 
                 <button
                     onClick={handleLogout}
-                    className="w-full flex items-center gap-3 px-3 py-2 mt-2 text-sm text-red-500 hover:bg-red-50 dark:hover:bg-red-500/10 rounded-lg transition-colors font-medium cursor-pointer"
+                    className="w-full flex items-center gap-3 px-3 py-2 mt-2 text-sm text-red-500 hover:bg-red-50 dark:hover:bg-red-500/10 rounded-lg transition-all font-medium cursor-pointer"
                 >
                     <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />

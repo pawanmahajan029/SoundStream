@@ -83,7 +83,7 @@ const Rooms = () => {
                                     value={joinInput}
                                     onChange={(e) => setJoinInput(e.target.value)}
                                     placeholder="Enter Room ID"
-                                    className="w-full bg-[#1A1D2D] dark:bg-gray-800 border border-gray-700 dark:border-gray-600 rounded-lg px-4 py-2.5 text-sm theme-text-primary focus:outline-none focus:border-purple-500 transition-colors"
+                                    className="w-full theme-bg-secondary theme-border border rounded-lg px-4 py-2.5 text-sm theme-text-primary focus:outline-none focus:border-purple-500 transition-colors"
                                     autoComplete="off"
                                 />
                                 <button
@@ -170,7 +170,7 @@ const Rooms = () => {
                                     value={chatInput}
                                     onChange={(e) => setChatInput(e.target.value)}
                                     placeholder="Type a message..."
-                                    className="flex-1 bg-white dark:bg-[#1A1D2D] border border-gray-200 dark:border-gray-700 rounded-full px-4 text-sm theme-text-primary focus:outline-none focus:border-purple-500 shadow-inner"
+                                    className="flex-1 theme-bg-secondary theme-border border rounded-full px-4 text-sm theme-text-primary focus:outline-none focus:border-purple-500 shadow-inner"
                                 />
                                 <button type="submit" disabled={!chatInput.trim()} className="p-2.5 bg-purple-500 hover:bg-purple-600 disabled:bg-gray-300 dark:disabled:bg-gray-700 text-white rounded-full transition-colors cursor-pointer disabled:cursor-not-allowed shadow-sm">
                                     <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

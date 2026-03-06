@@ -65,7 +65,7 @@ const BottomPlayer = () => {
                     <div className="flex items-center gap-6 mb-2">
                         <button
                             onClick={() => handleTrackChange('prev')}
-                            className="text-gray-500 hover:text-blue-500 dark:text-gray-400 dark:hover:text-blue-400 transition-colors"
+                            className="text-gray-500 hover:theme-accent-text dark:text-gray-400 dark:hover:theme-accent-text transition-colors"
                         >
                             <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M7 6c.55 0 1 .45 1 1v10c0 .55-.45 1-1 1s-1-.45-1-1V7c0-.55.45-1 1-1zm3.66 6.82l5.77 4.07c.66.47 1.58-.01 1.58-.82V7.93c0-.81-.91-1.28-1.58-.82l-5.77 4.07c-.57.4-.57 1.24 0 1.64z" />
@@ -74,7 +74,7 @@ const BottomPlayer = () => {
 
                         <button
                             onClick={handlePlayPause}
-                            className="w-10 h-10 flex items-center justify-center bg-blue-500 hover:bg-blue-600 text-white rounded-full shadow-lg transform hover:scale-105 transition-all"
+                            className="w-10 h-10 flex items-center justify-center theme-accent-bg hover:theme-accent-bg-hover text-white rounded-full shadow-lg transform hover:scale-105 transition-all"
                         >
                             {isPlaying ? (
                                 <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
@@ -89,7 +89,7 @@ const BottomPlayer = () => {
 
                         <button
                             onClick={() => handleTrackChange('next')}
-                            className="text-gray-500 hover:text-blue-500 dark:text-gray-400 dark:hover:text-blue-400 transition-colors"
+                            className="text-gray-500 hover:theme-accent-text dark:text-gray-400 dark:hover:theme-accent-text transition-colors"
                         >
                             <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M17 6c.55 0 1 .45 1 1v10c0 .55-.45 1-1 1s-1-.45-1-1V7c0-.55.45-1 1-1zM5.58 16.89l5.77-4.07c.56-.4.56-1.24 0-1.63L5.58 7.11C4.91 6.65 4 7.12 4 7.93v8.14c0 .81.91 1.28 1.58.82z" />
@@ -106,14 +106,16 @@ const BottomPlayer = () => {
                             value={currentTime}
                             onChange={handleSeek}
                             style={{
-                                background: `linear-gradient(to right, #3b82f6 ${(currentTime / duration) * 100}%, #e5e7eb 0%)`
+                                background: `linear-gradient(to right, var(--accent-primary) ${(currentTime / duration) * 100}%, var(--border-color) 0%)`
                             }}
                             className="w-full h-1.5 rounded-full appearance-none cursor-pointer 
                 [&::-webkit-slider-thumb]:appearance-none 
                 [&::-webkit-slider-thumb]:h-3 
                 [&::-webkit-slider-thumb]:w-3 
                 [&::-webkit-slider-thumb]:rounded-full 
-                [&::-webkit-slider-thumb]:bg-blue-500
+                [&::-webkit-slider-thumb]:bg-white
+                [&::-webkit-slider-thumb]:border-2
+                [&::-webkit-slider-thumb]:theme-accent-border
                 [&::-moz-range-thumb]:hidden"
                         />
                         <span className="w-10">{formatTime(duration)}</span>

@@ -55,12 +55,12 @@ const Landing = () => {
     };
 
     return (
-        <div className="landing-page min-h-screen w-full bg-[#080812] text-white flex flex-col md:flex-row font-bricolage overflow-hidden">
+        <div className="landing-page min-h-screen w-full theme-bg-primary theme-text-primary flex flex-col md:flex-row font-bricolage overflow-hidden">
             {/* Left Pane - Branding & Messaging */}
-            <div className="w-full md:w-5/12 lg:w-1/2 p-8 md:p-16 flex flex-col justify-between relative border-b md:border-b-0 md:border-r border-white/10 z-10 bg-[#0A0A16]">
-                <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none opacity-20">
-                    <div className="absolute -top-[20%] -left-[10%] w-[70%] h-[70%] rounded-full bg-blue-600/20 blur-[120px]"></div>
-                    <div className="absolute top-[60%] -right-[20%] w-[60%] h-[60%] rounded-full bg-purple-600/20 blur-[120px]"></div>
+            <div className="w-full md:w-5/12 lg:w-1/2 p-8 md:p-16 flex flex-col justify-between relative border-b md:border-b-0 md:border-r theme-border z-10 theme-bg-secondary">
+                <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none opacity-10 dark:opacity-20">
+                    <div className="absolute -top-[20%] -left-[10%] w-[70%] h-[70%] rounded-full bg-blue-600/10 dark:bg-blue-600/20 blur-[120px]"></div>
+                    <div className="absolute top-[60%] -right-[20%] w-[60%] h-[60%] rounded-full bg-purple-600/10 dark:bg-purple-600/20 blur-[120px]"></div>
                 </div>
 
                 <div className="relative z-10">
@@ -95,14 +95,14 @@ const Landing = () => {
             </div>
 
             {/* Right Pane - Strict 3-Step Gateway */}
-            <div className="w-full md:w-7/12 lg:w-1/2 p-8 md:p-16 flex flex-col justify-center bg-[#05050A]">
+            <div className="w-full md:w-7/12 lg:w-1/2 p-8 md:p-16 flex flex-col justify-center theme-bg-tertiary">
                 <div className="max-w-md w-full mx-auto relative">
 
                     {/* BACK BUTTON */}
                     {step > 1 && (
                         <button
                             onClick={goBack}
-                            className="absolute -top-12 left-0 text-sm text-gray-400 hover:text-white flex items-center transition-colors"
+                            className="absolute -top-12 left-0 text-sm text-gray-400 hover:theme-accent-text flex items-center transition-all"
                         >
                             ← Back
                         </button>
@@ -119,31 +119,31 @@ const Landing = () => {
                             <div className="flex flex-col gap-4">
                                 <button
                                     onClick={() => handleRoleSelect('listener')}
-                                    className="group relative w-full flex items-center p-6 rounded-2xl border text-left transition-all duration-300 bg-transparent border-white/5 hover:border-blue-500/50 hover:bg-white-[0.02]"
+                                    className="group relative w-full flex items-center p-6 rounded-2xl border text-left transition-all duration-300 bg-transparent theme-border hover:theme-accent-border hover:bg-blue-50/50 dark:hover:bg-blue-900/10"
                                 >
-                                    <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-blue-500/10 text-blue-400 mr-5 transition-transform border border-blue-500/20 group-hover:scale-105">
+                                    <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-slate-100 dark:theme-bg-tertiary theme-accent-text mr-5 transition-transform border theme-border group-hover:scale-105 group-hover:border-blue-500/50 group-hover:bg-white dark:group-hover:bg-slate-800">
                                         <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
                                             <path strokeLinecap="round" strokeLinejoin="round" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
                                         </svg>
                                     </div>
                                     <div className="flex-1">
-                                        <h3 className="text-lg font-medium text-gray-100 mb-1">Audiophile</h3>
-                                        <p className="text-sm text-gray-500">High-fidelity streaming and curation.</p>
+                                        <h3 className="text-lg font-medium theme-text-primary mb-1 group-hover:theme-accent-text">Audiophile</h3>
+                                        <p className="text-sm theme-text-tertiary">High-fidelity streaming and curation.</p>
                                     </div>
                                 </button>
 
                                 <button
                                     onClick={() => handleRoleSelect('creator')}
-                                    className="group relative w-full flex items-center p-6 rounded-2xl border text-left transition-all duration-300 bg-transparent border-white/5 hover:border-purple-500/50 hover:bg-white-[0.02]"
+                                    className="group relative w-full flex items-center p-6 rounded-2xl border text-left transition-all duration-300 bg-transparent theme-border hover:border-amber-500 hover:bg-amber-50/50 dark:hover:bg-amber-900/10"
                                 >
-                                    <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-purple-500/10 text-purple-400 mr-5 transition-transform border border-purple-500/20 group-hover:scale-105">
+                                    <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-slate-100 dark:theme-bg-tertiary text-amber-500 mr-5 transition-transform border theme-border group-hover:scale-105 group-hover:border-amber-500/50 group-hover:bg-white dark:group-hover:bg-slate-800">
                                         <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
                                             <path strokeLinecap="round" strokeLinejoin="round" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
                                         </svg>
                                     </div>
                                     <div className="flex-1">
-                                        <h3 className="text-lg font-medium text-gray-100 mb-1">Creator</h3>
-                                        <p className="text-sm text-gray-500">Upload, manage, and monetize catalog.</p>
+                                        <h3 className="text-lg font-medium theme-text-primary mb-1 group-hover:text-amber-600 dark:group-hover:text-amber-400">Creator</h3>
+                                        <p className="text-sm theme-text-tertiary">Upload, manage, and monetize catalog.</p>
                                     </div>
                                 </button>
                             </div>
@@ -165,8 +165,8 @@ const Landing = () => {
                                 <button
                                     onClick={() => handleActionSelect('login')}
                                     className={`w-full py-4 rounded-xl border font-semibold tracking-wide transition-all ${selectedRole === 'creator'
-                                        ? 'bg-purple-600 hover:bg-purple-500 border-purple-500 text-white shadow-[0_0_20px_rgba(168,85,247,0.2)]'
-                                        : 'bg-blue-600 hover:bg-blue-500 border-blue-500 text-white shadow-[0_0_20px_rgba(59,130,246,0.2)]'
+                                        ? 'bg-amber-600 hover:bg-amber-700 border-amber-700 text-white shadow-md'
+                                        : 'theme-accent-bg hover:theme-accent-bg-hover border-blue-700 text-white shadow-md'
                                         }`}
                                 >
                                     Yes, Log into my Account
@@ -211,25 +211,25 @@ const Landing = () => {
 
                             <form onSubmit={handleSubmit} className="flex flex-col gap-5">
                                 <div>
-                                    <label className="block text-xs font-semibold tracking-wider text-gray-500 uppercase mb-2">Email Address</label>
+                                    <label className="block text-xs font-semibold tracking-wider theme-text-secondary uppercase mb-2">Email Address</label>
                                     <input
                                         type="email"
                                         required
                                         value={email}
                                         onChange={(e) => setEmail(e.target.value)}
-                                        className={`w-full bg-[#0A0A16] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:ring-1 transition-all ${selectedRole === 'creator' ? 'focus:border-purple-500/50 focus:ring-purple-500/50' : 'focus:border-blue-500/50 focus:ring-blue-500/50'
+                                        className={`w-full theme-bg-secondary theme-border border rounded-xl px-4 py-3 theme-text-primary placeholder-gray-500 focus:outline-none focus:ring-1 transition-all ${selectedRole === 'creator' ? 'focus:border-purple-500/50 focus:ring-purple-500/50' : 'focus:border-blue-500/50 focus:ring-blue-500/50'
                                             }`}
                                         placeholder="you@example.com"
                                     />
                                 </div>
                                 <div>
-                                    <label className="block text-xs font-semibold tracking-wider text-gray-500 uppercase mb-2">Password</label>
+                                    <label className="block text-xs font-semibold tracking-wider theme-text-secondary uppercase mb-2">Password</label>
                                     <input
                                         type="password"
                                         required
                                         value={password}
                                         onChange={(e) => setPassword(e.target.value)}
-                                        className={`w-full bg-[#0A0A16] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:ring-1 transition-all ${selectedRole === 'creator' ? 'focus:border-purple-500/50 focus:ring-purple-500/50' : 'focus:border-blue-500/50 focus:ring-blue-500/50'
+                                        className={`w-full theme-bg-secondary theme-border border rounded-xl px-4 py-3 theme-text-primary placeholder-gray-500 focus:outline-none focus:ring-1 transition-all ${selectedRole === 'creator' ? 'focus:border-purple-500/50 focus:ring-purple-500/50' : 'focus:border-blue-500/50 focus:ring-blue-500/50'
                                             }`}
                                         placeholder="••••••••"
                                     />
@@ -239,8 +239,8 @@ const Landing = () => {
                                     type="submit"
                                     disabled={loading}
                                     className={`mt-4 w-full text-white font-semibold py-3.5 rounded-xl transition-all flex items-center justify-center disabled:opacity-70 disabled:active:scale-100 ${selectedRole === 'creator'
-                                        ? 'bg-purple-600 hover:bg-purple-500 active:scale-[0.98]'
-                                        : 'bg-blue-600 hover:bg-blue-500 active:scale-[0.98]'
+                                        ? 'bg-amber-600 hover:bg-amber-700 active:scale-[0.98]'
+                                        : 'theme-accent-bg hover:theme-accent-bg-hover active:scale-[0.98]'
                                         }`}
                                 >
                                     {loading ? (
