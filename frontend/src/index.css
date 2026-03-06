@@ -152,28 +152,6 @@ body {
   transition: border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Input field background - gray-200 in light mode, keeps dark theme unchanged */
-.theme-input-bg {
-  background-color: #e5e7eb;
-  /* gray-200 for light mode */
-}
-
-.dark .theme-input-bg {
-  background-color: var(--bg-secondary);
-  /* keeps original dark theme */
-}
-
-/* Input field gradient for light mode only */
-.input-gradient-light {
-  background: linear-gradient(135deg, #dbeafe, #e0e7ff, #c7d2fe);
-}
-
-/* Dark mode override - use normal tertiary background exactly as before */
-.dark .input-gradient-light {
-  background: var(--bg-tertiary) !important;
-  background-image: none !important;
-}
-
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -255,38 +233,6 @@ body {
 
 .animate-pulse {
   animation: pulse 0.3s ease-in-out;
-}
-
-/* Theme toggle animations */
-.theme-icon-enter {
-  animation: rotateIn 0.4s ease-out;
-}
-
-.theme-toggle-active {
-  animation: pulse 0.3s ease-in-out;
-}
-
-.delay-0 {
-  animation-delay: 0s;
-}
-
-.delay-150 {
-  animation-delay: 0.15s;
-}
-
-.delay-300 {
-  animation-delay: 0.3s;
-}
-
-/* Security Modal overlay background */
-.modal-overlay-bg {
-  background-color: #e5e7eb;
-  /* gray-200 for light mode */
-}
-
-.dark .modal-overlay-bg {
-  background-color: var(--bg-primary);
-  /* keeps dark theme as before */
 }
 
 /* Music dancing bars animation */

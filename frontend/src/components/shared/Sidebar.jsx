@@ -15,7 +15,7 @@ const Sidebar = () => {
     };
 
     return (
-        <aside className="w-full h-full theme-bg-secondary border-r border-white/5 flex flex-col pt-8 pb-6 px-3 shadow-2xl z-40">
+        <aside className="w-full h-full theme-bg-secondary border-r theme-border flex flex-col pt-8 pb-6 px-3 shadow-2xl z-40">
             {/* Logo Section */}
             <div className="mb-10 px-2 scale-110 origin-left">
                 <InnerLogo />
@@ -106,7 +106,7 @@ const Sidebar = () => {
                     </div>
                 )}
 
-                <div className="flex items-center gap-3 px-3 py-2 text-sm text-gray-500 dark:text-gray-400 font-medium">
+                <div className="flex items-center gap-3 px-3 py-2 text-sm theme-text-tertiary font-medium">
                     <ThemeToggle />
                     <span>Theme Switch</span>
                 </div>

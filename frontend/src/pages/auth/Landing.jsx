@@ -72,12 +72,12 @@ const Landing = () => {
                             <circle cx="17" cy="25" r="2" fill="#e2e8f0" />
                             <circle cx="24" cy="23" r="2" fill="#e2e8f0" />
                         </svg>
-                        <span className="text-xl font-bold tracking-tight text-gray-100 font-clash">SoundStream</span>
+                        <span className="text-xl font-bold tracking-tight theme-text-primary font-clash">SoundStream</span>
                     </div>
 
                     <div className="max-w-md">
                         <span className="uppercase tracking-[3px] text-xs font-semibold text-blue-400 mb-4 block">The Professional Choice</span>
-                        <h1 className="text-5xl md:text-6xl font-bold leading-[1.05] tracking-tight mb-6 font-clash text-white">
+                        <h1 className="text-5xl md:text-6xl font-bold leading-[1.05] tracking-tight mb-6 font-clash theme-text-primary">
                             Master Your <br />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
                                 Audio Space.
@@ -112,7 +112,7 @@ const Landing = () => {
                     {step === 1 && (
                         <div className="animate-fade-in">
                             <div className="mb-10">
-                                <h2 className="text-3xl font-semibold text-gray-100 mb-3 font-clash">Select Workspace</h2>
+                                <h2 className="text-3xl font-semibold theme-text-primary mb-3 font-clash">Select Workspace</h2>
                                 <p className="text-gray-400">Choose your environment profile to continue.</p>
                             </div>
 
@@ -157,7 +157,7 @@ const Landing = () => {
                                 <span className="uppercase tracking-widest text-xs font-semibold text-gray-500 mb-2 block">
                                     {selectedRole === 'creator' ? 'CREATOR WORKSPACE' : 'LISTENER WORKSPACE'}
                                 </span>
-                                <h2 className="text-3xl font-semibold text-gray-100 mb-3 font-clash">Welcome</h2>
+                                <h2 className="text-3xl font-semibold theme-text-primary mb-3 font-clash">Welcome</h2>
                                 <p className="text-gray-400">Do you already have an account?</p>
                             </div>
 
@@ -193,7 +193,7 @@ const Landing = () => {
                                         {authAction === 'login' ? 'SIGN IN' : 'REGISTRATION'}
                                     </span>
                                 </div>
-                                <h2 className="text-3xl font-semibold text-gray-100 mb-2 font-clash">
+                                <h2 className="text-3xl font-semibold theme-text-primary mb-2 font-clash">
                                     {authAction === 'login' ? 'Welcome Back.' : 'Join the Network.'}
                                 </h2>
                                 <p className="text-gray-400 text-sm">
