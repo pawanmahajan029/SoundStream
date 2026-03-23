@@ -7,7 +7,7 @@ export async function uploadSong(songData) {
 export async function getAllSongs() {
     return await songModel
         .find()
-        .sort({ createdAt: -1 })  // -1 for descending order (newest first)
+        .sort({ createdAt: -1 })
 }
 
 export async function searchSongs(query) {

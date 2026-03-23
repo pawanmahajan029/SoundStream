@@ -5,6 +5,7 @@ import { fetchSongs } from '../store/musicSlice'
 import Home from '../pages/listener/Home'
 import Search from '../pages/listener/Search'
 import Rooms from '../pages/listener/Rooms'
+import Leaderboard from '../pages/listener/Leaderboard'
 import UploadMusic from '../pages/creator/UploadMusic'
 import CreatorDashboard from '../pages/creator/CreatorDashboard'
 import Layout from '../components/shared/Layout'
@@ -45,6 +46,10 @@ const appRoutes = [
     {
         path: '/upload-music',
         element: <PrivateRoute><CreatorRoute><Layout><UploadMusic /></Layout></CreatorRoute></PrivateRoute>
+    },
+    {
+        path: '/leaderboard',
+        element: <PrivateRoute><Layout><Leaderboard /></Layout></PrivateRoute>
     }
 ]
 

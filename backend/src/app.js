@@ -2,6 +2,8 @@ import express from 'express';
 import creatorRoutes from './routes/creator.routes.js';
 import listenerRoutes from './routes/listener.routes.js';
 import authRoutes from './routes/auth.routes.js';
+import collabRoutes from './routes/collab.routes.js';
+import leaderboardRoutes from './routes/leaderboard.routes.js';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import config from './config/config.js';
@@ -59,8 +61,10 @@ app.use(cookieParser())             // middleware to parse cookies from request
 // Serve locally uploaded files
 app.use('/uploads', express.static(path.join(__dirname, '../uploads')))
 
-app.use('/song', listenerRoutes)    // listener can get songs
-app.use('/song', creatorRoutes)     // creator can upload/delete songs
-app.use('/auth', authRoutes)      // middleware to use auth routes
+app.use('/song', listenerRoutes)         // listener can get songs
+app.use('/song', creatorRoutes)          // creator can upload/delete songs
+app.use('/auth', authRoutes)             // auth routes
+app.use('/collab', collabRoutes)         // collab request routes
+app.use('/leaderboard', leaderboardRoutes) // leaderboard routes
 
 export default app;

@@ -45,7 +45,6 @@ export function uploadPosterFileLocally(file, fileName) {
 export function deleteFileLocally(fileUrl) {
     if (!fileUrl) return;
     try {
-        // Handle both relative (/uploads/...) and absolute (http://...) URLs
         let urlPath = fileUrl.startsWith('http') ? new URL(fileUrl).pathname : fileUrl;
 
         if (urlPath.startsWith('/uploads/')) {

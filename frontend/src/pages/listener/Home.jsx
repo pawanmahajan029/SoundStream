@@ -1,13 +1,15 @@
+import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { setCurrentSong, togglePlayPause, fetchSongs, deleteSong } from '../../store/musicSlice'
-
-// Animation is now defined in index.css - no need for inline styles
+import CollabRequestModal from '../../components/listener/CollabRequestModal'
 
 const Home = () => {
   const dispatch = useDispatch()
   const { songs, currentSong, isPlaying, loading, error } = useSelector(state => state.music)
   const { user } = useSelector(state => state.auth)
   const userRole = user?.role || 'listener';
+
+  const [collabModal, setCollabModal] = useState(null); // { song, creatorId }
 
   const handleSongClick = (song) => {
     dispatch(setCurrentSong(song));
@@ -24,6 +26,11 @@ const Home = () => {
       }
     }
   }
+
+  const handleCollabClick = (e, song) => {
+    e.stopPropagation();
+    setCollabModal({ song, creatorId: song.user });
+  };
 
   return (
     <div className="flex flex-col h-full w-full">
@@ -67,27 +74,33 @@ const Home = () => {
                     </div>
                   </div>
 
-                  <div className="flex items-center space-x-4 ml-4">
+                  <div className="flex items-center space-x-3 ml-4">
                     {currentSong?._id === song._id && isPlaying && (
                       <div className="flex items-end h-6 space-x-0.5">
-                        <div
-                          className="w-0.5 h-2 music-bar rounded-full"
-                          style={{ animationDelay: '0ms' }}
-                        ></div>
-                        <div
-                          className="w-0.5 h-3 music-bar rounded-full"
-                          style={{ animationDelay: '0.2s' }}
-                        ></div>
-                        <div
-                          className="w-0.5 h-1.5 music-bar rounded-full"
-                          style={{ animationDelay: '0.4s' }}
-                        ></div>
+                        <div className="w-0.5 h-2 music-bar rounded-full" style={{ animationDelay: '0ms' }}></div>
+                        <div className="w-0.5 h-3 music-bar rounded-full" style={{ animationDelay: '0.2s' }}></div>
+                        <div className="w-0.5 h-1.5 music-bar rounded-full" style={{ animationDelay: '0.4s' }}></div>
                       </div>
                     )}
+
+                    {/* Collab button: only for listeners on songs they don't own */}
+                    {userRole === 'listener' && song.user && song.user !== user?._id && (
+                      <button
+                        onClick={(e) => handleCollabClick(e, song)}
+                        className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-full bg-purple-500/10 text-purple-400 border border-purple-500/20 hover:bg-purple-500/20 transition-colors opacity-0 group-hover:opacity-100"
+                        title="Request Collaboration"
+                      >
+                        <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                        Collab
+                      </button>
+                    )}
+
                     {userRole === 'creator' && (
                       <button
                         onClick={(e) => handleDelete(e, song._id)}
-                        className="p-2 text-red-500 bg-red-500/10 hover:bg-red-500/20 rounded-full transition-colors ml-2 opacity-0 group-hover:opacity-100"
+                        className="p-2 text-red-500 bg-red-500/10 hover:bg-red-500/20 rounded-full transition-colors opacity-0 group-hover:opacity-100"
                         title="Delete song"
                       >
                         <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -102,8 +115,18 @@ const Home = () => {
           )}
         </div>
       </section>
+
+      {/* Collab Request Modal */}
+      {collabModal && (
+        <CollabRequestModal
+          song={collabModal.song}
+          creatorId={collabModal.creatorId}
+          onClose={() => setCollabModal(null)}
+        />
+      )}
     </div>
   )
 }
 
 export default Home
+

@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useAudio } from '../../context/AudioContext';
 import { setCurrentSong, togglePlayPause } from '../../store/musicSlice';
+import { recordPlay } from '../../store/leaderboardSlice';
 
 const BottomPlayer = () => {
     const dispatch = useDispatch();
@@ -16,7 +17,31 @@ const BottomPlayer = () => {
         handleSocketTrackChange
     } = useAudio();
 
-    if (!currentSong) return null;
+    // Play tracking: fires recordPlay once after 10s of continuous listening
+    const playTimerRef = useRef(null);
+    const trackedSongRef = useRef(null);
+
+    useEffect(() => {
+        // Clear any existing timer when song changes or playback stops
+        if (playTimerRef.current) {
+            clearTimeout(playTimerRef.current);
+            playTimerRef.current = null;
+        }
+
+        if (isPlaying && currentSong && currentSong._id !== trackedSongRef.current) {
+            playTimerRef.current = setTimeout(() => {
+                if (currentSong?.user) {
+                    dispatch(recordPlay({ songId: currentSong._id, creatorId: currentSong.user }));
+                    trackedSongRef.current = currentSong._id; // mark as tracked
+                }
+            }, 10000); // 10 seconds
+        }
+
+        return () => {
+            if (playTimerRef.current) clearTimeout(playTimerRef.current);
+        };
+    }, [isPlaying, currentSong?._id, dispatch]);
+
 
     // Handle track navigation
     const handleTrackChange = (direction) => {
@@ -46,6 +71,8 @@ const BottomPlayer = () => {
             }
         }, 0);
     }
+
+    if (!currentSong) return null;
 
     return (
         <div className="w-full h-full z-50 theme-bg-player border-t theme-border py-2 px-6 shadow-[0_-10px_40px_rgba(0,0,0,0.3)] backdrop-blur-xl">
